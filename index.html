@@ -1,26 +1,869 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wai Hang Wong</title>
+  <meta name="description" content="Academic homepage of Wai Hang Wong, an undergraduate student in Artificial Intelligence at Wuhan University interested in LLM agents, embodied AI, world models, and human-AI interaction.">
+  <link rel="canonical" href="https://timesbye.github.io/waihangwong.github.io/">
+  <meta property="og:title" content="Wai Hang Wong">
+  <meta property="og:description" content="Undergraduate Student in Artificial Intelligence, School of Computer Science, Wuhan University.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://timesbye.github.io/waihangwong.github.io/">
+  <meta property="og:image" content="https://timesbye.github.io/waihangwong.github.io/assets/profile.jpg">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --secondary: #475569;
+      --muted: #64748b;
+      --blue: #2563eb;
+      --navy: #1e3a8a;
+      --border: #e2e8f0;
+      --light-blue: #eff6ff;
+      --tag-bg: #dbeafe;
+      --teal: #0f766e;
+      --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      letter-spacing: 0;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -48px;
+      z-index: 100;
+      padding: 8px 12px;
+      background: var(--text);
+      color: #fff;
+      border-radius: 6px;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      max-width: 1080px;
+      width: 100%;
+      height: 64px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .container {
+      max-width: 1080px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      grid-template-areas:
+        "intro portrait"
+        "summary portrait";
+      gap: 22px 56px;
+      align-items: center;
+      padding: 72px 0 54px;
+      min-width: 0;
+    }
+
+    .hero-copy {
+      grid-area: intro;
+      min-width: 0;
+    }
+
+    .hero-summary {
+      grid-area: summary;
+      width: 100%;
+      max-width: 680px;
+      min-width: 0;
+    }
+
+    .profile-visual {
+      grid-area: portrait;
+      margin: 0;
+      justify-self: end;
+      width: 100%;
+      max-width: 310px;
+      min-width: 0;
+    }
+
+    .profile-photo {
+      width: 260px;
+      height: 320px;
+      margin-left: auto;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-caption {
+      width: 260px;
+      margin: 14px 0 0 auto;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 14px;
+      color: var(--text);
+      font-size: 52px;
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .identity {
+      margin: 0;
+      color: var(--secondary);
+      font-size: 18px;
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .hero-intro {
+      margin: 0 0 22px;
+      color: var(--secondary);
+      font-size: 18px;
+      line-height: 1.75;
+      overflow-wrap: break-word;
+    }
+
+    .hero-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 24px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-facts li {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      max-width: 100%;
+      padding: 6px 11px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--secondary);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-facts li a {
+      color: inherit;
+      font-weight: inherit;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-facts li a:hover {
+      color: var(--blue);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 9px 15px;
+      border: 1px solid var(--blue);
+      border-radius: 8px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.3;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      background: var(--surface);
+      color: var(--blue);
+    }
+
+    .button.secondary:hover {
+      background: var(--light-blue);
+      color: var(--navy);
+    }
+
+    .section {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 40px;
+      align-items: start;
+      min-width: 0;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      color: var(--text);
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .section-kicker {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .section-body {
+      color: var(--secondary);
+      min-width: 0;
+    }
+
+    .section-body p {
+      margin-bottom: 16px;
+      max-width: 760px;
+    }
+
+    .section-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .interest-card,
+    .project-card,
+    .contact-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      min-width: 0;
+    }
+
+    .interest-card {
+      padding: 18px;
+    }
+
+    .interest-card h3,
+    .project-card h3 {
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.35;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .interest-card p {
+      margin: 0;
+      color: var(--secondary);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .projects {
+      display: grid;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .project-card {
+      padding: 22px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 12px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .project-tags li {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .project-card p {
+      margin-bottom: 14px;
+      color: var(--secondary);
+    }
+
+    .project-card ul {
+      display: grid;
+      gap: 6px;
+      margin: 0;
+      padding-left: 18px;
+      color: var(--secondary);
+    }
+
+    .education-list {
+      display: grid;
+      gap: 18px;
+      max-width: 760px;
+    }
+
+    .education-item {
+      position: relative;
+      padding-left: 22px;
+      border-left: 2px solid var(--tag-bg);
+    }
+
+    .education-item::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .education-item h3 {
+      margin: 0 0 4px;
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.35;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .education-item p {
+      margin: 0;
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+
+    .education-date {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .contact-card {
+      min-width: 0;
+      padding: 18px;
+    }
+
+    .contact-label {
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .contact-card a,
+    .contact-card span {
+      overflow-wrap: anywhere;
+      color: var(--text);
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0 36px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        height: auto;
+        min-height: 62px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .nav-links {
+        width: 100%;
+        gap: 14px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "intro"
+          "portrait"
+          "summary";
+        gap: 20px;
+        padding: 42px 0 42px;
+      }
+
+      .hero-summary {
+        max-width: 100%;
+      }
+
+      .profile-visual {
+        justify-self: start;
+        max-width: none;
+      }
+
+      .profile-photo {
+        width: 180px;
+        height: 220px;
+        margin-left: 0;
+      }
+
+      .profile-caption {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      h1 {
+        font-size: 38px;
+        line-height: 1.12;
+      }
+
+      .identity,
+      .hero-intro {
+        font-size: 16px;
+      }
+
+      .section {
+        padding: 38px 0;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .interest-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container,
+      .nav,
+      .footer-inner {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .nav-links {
+        font-size: 13px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .hero-facts {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-facts li {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Wai Hang Wong",
+      "alternateName": "WAI HANG WONG",
+      "email": "mailto:2022312111106@whu.edu.cn",
+      "url": "https://timesbye.github.io/waihangwong.github.io/",
+      "image": "https://timesbye.github.io/waihangwong.github.io/assets/profile.jpg",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Wuhan University"
+      },
+      "sameAs": [
+        "https://github.com/timesbye"
+      ],
+      "knowsAbout": [
+        "LLM agents",
+        "Embodied AI",
+        "World models",
+        "Human-AI interaction",
+        "Agent evaluation",
+        "Trajectory-level reasoning"
+      ]
+    }
+  </script>
 </head>
 <body>
-  <h1>Wai Hang Wong</h1>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#top">Wai Hang Wong</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-  <p>
-    Undergraduate Student, School of Computer Science, Wuhan University
-  </p>
+  <main id="main" class="container">
+    <section id="top" class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Early-stage researcher in AI agents</p>
+        <h1 id="hero-title">Wai Hang Wong</h1>
+        <p class="identity">
+          Undergraduate Student in Artificial Intelligence<br>
+          School of Computer Science, Wuhan University
+        </p>
+      </div>
 
-  <p>
-    Email: 2022312111106@whu.edu.cn
-  </p>
+      <figure class="profile-visual">
+        <img class="profile-photo" src="assets/profile.jpg" alt="Portrait of Wai Hang Wong" width="150" height="200">
+        <figcaption class="profile-caption">Academic profile photo for OpenReview and research contact.</figcaption>
+      </figure>
 
-  <p>
-    Research Interests: LLM Agents, Embodied AI, World Models, Human-AI Interaction
-  </p>
+      <div class="hero-summary">
+        <p class="hero-intro">
+          I am interested in LLM agents, embodied AI, world models, and human-AI interaction. My current work focuses on trajectory-level reasoning, constraint-aware agent evaluation, and interactive decision-making systems.
+        </p>
+        <ul class="hero-facts" aria-label="Profile facts">
+          <li>Wuhan University</li>
+          <li>Artificial Intelligence</li>
+          <li><a href="mailto:2022312111106@whu.edu.cn">2022312111106@whu.edu.cn</a></li>
+        </ul>
+        <div class="actions" aria-label="Primary links">
+          <a class="button" href="mailto:2022312111106@whu.edu.cn">Email</a>
+          <a class="button secondary" href="https://github.com/timesbye" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
 
-  <p>
-    GitHub: https://github.com/timesbye
-  </p>
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">About</span>
+          <h2 id="about-title">Academic Profile</h2>
+        </div>
+        <div class="section-body">
+          <p>
+            I am currently an undergraduate student in Artificial Intelligence at Wuhan University. My work focuses on building and evaluating intelligent agents that can reason over trajectories, handle constraints, and interact with humans more effectively.
+          </p>
+          <p>
+            I am especially interested in LLM-based agents, embodied AI, world models, human-AI interaction, and evaluation methods for interactive decision-making systems.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="section" aria-labelledby="research-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">Research</span>
+          <h2 id="research-title">Research Interests</h2>
+        </div>
+        <div class="interest-grid">
+          <article class="interest-card">
+            <h3>LLM Agents</h3>
+            <p>Reasoning, planning, tool use, and interaction in language-model-based agents.</p>
+          </article>
+          <article class="interest-card">
+            <h3>Embodied AI</h3>
+            <p>Interactive agents that perceive, act, and communicate in virtual or physical environments.</p>
+          </article>
+          <article class="interest-card">
+            <h3>World Models</h3>
+            <p>Representations and predictive models for decision-making and long-horizon behavior.</p>
+          </article>
+          <article class="interest-card">
+            <h3>Human-AI Interaction</h3>
+            <p>Clarification, uncertainty expression, and user-centered interactive systems.</p>
+          </article>
+          <article class="interest-card">
+            <h3>Agent Evaluation</h3>
+            <p>Evaluation protocols for constraint following, trajectory reasoning, and task completion.</p>
+          </article>
+          <article class="interest-card">
+            <h3>Trajectory-level Reasoning</h3>
+            <p>Modeling long-range dependencies across multi-step agent behaviors.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">Projects</span>
+          <h2 id="projects-title">Selected Projects</h2>
+        </div>
+        <div class="projects">
+          <article class="project-card">
+            <h3>TrajGraphRank</h3>
+            <ul class="project-tags" aria-label="TrajGraphRank tags">
+              <li>LLM Agents</li>
+              <li>Agent Evaluation</li>
+              <li>Trajectory Reasoning</li>
+            </ul>
+            <p>
+              A research project on trajectory-level graph reasoning and constraint-aware ranking for evaluating LLM-based agents. The project studies how agents retrieve, rank, and use long-range constraints during multi-step task execution.
+            </p>
+            <ul>
+              <li>Constraint-aware trajectory analysis</li>
+              <li>Long-range dependency and active constraint miss</li>
+              <li>Ranking-based evaluation for agent behavior</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <h3>OpenAvatar-AgentUI</h3>
+            <ul class="project-tags" aria-label="OpenAvatar-AgentUI tags">
+              <li>Embodied AI</li>
+              <li>Virtual Agent</li>
+              <li>Unity</li>
+            </ul>
+            <p>
+              A Unity-based virtual avatar agent interface that integrates dialogue state, emotion, action control, and multimodal interaction. The system explores how virtual agents can express reasoning states and interact with users through speech, facial expression, and body actions.
+            </p>
+            <ul>
+              <li>Dialogue state and emotion visualization</li>
+              <li>Avatar expression and action control</li>
+              <li>Multimodal human-agent interaction</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <h3>EduAffect Recommender</h3>
+            <ul class="project-tags" aria-label="EduAffect Recommender tags">
+              <li>Educational AI</li>
+              <li>Student Modeling</li>
+              <li>Affective Computing</li>
+            </ul>
+            <p>
+              A student modeling and personalized learning recommendation framework that combines behavioral signals and affective signals for learning path recommendation.
+            </p>
+            <ul>
+              <li>Behavior-enhanced knowledge state modeling</li>
+              <li>Affective signal annotation and fusion</li>
+              <li>Personalized learning recommendation</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section" aria-labelledby="education-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">Education</span>
+          <h2 id="education-title">Education</h2>
+        </div>
+        <div class="education-list">
+          <article class="education-item">
+            <h3>Wuhan University</h3>
+            <p>B.Eng. in Artificial Intelligence</p>
+            <p>School of Computer Science</p>
+            <p class="education-date">2022 - 2026</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">Contact</span>
+          <h2 id="contact-title">Contact</h2>
+        </div>
+        <div class="contact-grid">
+          <article class="contact-card">
+            <div class="contact-label">Email</div>
+            <a href="mailto:2022312111106@whu.edu.cn">2022312111106@whu.edu.cn</a>
+          </article>
+          <article class="contact-card">
+            <div class="contact-label">GitHub</div>
+            <a href="https://github.com/timesbye" target="_blank" rel="noopener noreferrer">github.com/timesbye</a>
+          </article>
+          <article class="contact-card">
+            <div class="contact-label">Homepage</div>
+            <a href="https://timesbye.github.io/waihangwong.github.io/">timesbye.github.io/waihangwong.github.io</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; 2026 Wai Hang Wong</span>
+      <span>Last updated June 2026</span>
+    </div>
+  </footer>
 </body>
 </html>
