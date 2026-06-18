@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wai Hang Wong</title>
-  <meta name="description" content="Academic homepage of Wai Hang Wong, an undergraduate student in Artificial Intelligence at Wuhan University interested in LLM agents, embodied AI, world models, and human-AI interaction.">
+  <meta name="description" content="Academic homepage of Wai Hang Wong, an undergraduate student in Artificial Intelligence at Wuhan University and incoming graduate student in Artificial Intelligence at Tsinghua University.">
   <link rel="canonical" href="https://timesbye.github.io/waihangwong.github.io/">
   <meta property="og:title" content="Wai Hang Wong">
-  <meta property="og:description" content="Undergraduate Student in Artificial Intelligence, School of Computer Science, Wuhan University.">
+  <meta property="og:description" content="Undergraduate Student in Artificial Intelligence at Wuhan University; Incoming Graduate Student in Artificial Intelligence at Tsinghua University.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://timesbye.github.io/waihangwong.github.io/">
   <meta property="og:image" content="https://timesbye.github.io/waihangwong.github.io/assets/profile.jpg">
@@ -223,6 +223,12 @@
       font-weight: 600;
     }
 
+    .future-identity {
+      display: inline-block;
+      margin-top: 6px;
+      color: var(--navy);
+    }
+
     .hero-intro {
       margin: 0 0 22px;
       color: var(--secondary);
@@ -387,6 +393,10 @@
       color: var(--secondary);
       font-size: 15px;
       line-height: 1.65;
+    }
+
+    .interest-card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
     }
 
     .projects {
@@ -593,6 +603,10 @@
       .contact-grid {
         grid-template-columns: 1fr;
       }
+
+      .interest-card:last-child:nth-child(odd) {
+        grid-column: auto;
+      }
     }
 
     @media (max-width: 520px) {
@@ -640,10 +654,17 @@
       "email": "mailto:2022312111106@whu.edu.cn",
       "url": "https://timesbye.github.io/waihangwong.github.io/",
       "image": "https://timesbye.github.io/waihangwong.github.io/assets/profile.jpg",
-      "affiliation": {
-        "@type": "CollegeOrUniversity",
-        "name": "Wuhan University"
-      },
+      "affiliation": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Wuhan University"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Tsinghua University",
+          "description": "Incoming Graduate Student in Artificial Intelligence"
+        }
+      ],
       "sameAs": [
         "https://github.com/timesbye"
       ],
@@ -652,8 +673,7 @@
         "Embodied AI",
         "World models",
         "Human-AI interaction",
-        "Agent evaluation",
-        "Trajectory-level reasoning"
+        "Agent evaluation"
       ]
     }
   </script>
@@ -680,7 +700,8 @@
         <h1 id="hero-title">Wai Hang Wong</h1>
         <p class="identity">
           Undergraduate Student in Artificial Intelligence<br>
-          School of Computer Science, Wuhan University
+          School of Computer Science, Wuhan University<br>
+          <span class="future-identity">Incoming Graduate Student in Artificial Intelligence<br>Tsinghua University</span>
         </p>
       </div>
 
@@ -691,10 +712,11 @@
 
       <div class="hero-summary">
         <p class="hero-intro">
-          I am interested in LLM agents, embodied AI, world models, and human-AI interaction. My current work focuses on trajectory-level reasoning, constraint-aware agent evaluation, and interactive decision-making systems.
+          I am interested in LLM agents, embodied AI, world models, and human-AI interaction. My current interests focus on agent evaluation, interactive decision-making systems, and embodied virtual agents.
         </p>
         <ul class="hero-facts" aria-label="Profile facts">
           <li>Wuhan University</li>
+          <li>Tsinghua University</li>
           <li>Artificial Intelligence</li>
           <li><a href="mailto:2022312111106@whu.edu.cn">2022312111106@whu.edu.cn</a></li>
         </ul>
@@ -716,7 +738,7 @@
             I am currently an undergraduate student in Artificial Intelligence at Wuhan University. My work focuses on building and evaluating intelligent agents that can reason over trajectories, handle constraints, and interact with humans more effectively.
           </p>
           <p>
-            I am especially interested in LLM-based agents, embodied AI, world models, human-AI interaction, and evaluation methods for interactive decision-making systems.
+            I am also an incoming graduate student in Artificial Intelligence at Tsinghua University. I am especially interested in LLM-based agents, embodied AI, world models, human-AI interaction, and evaluation methods for interactive decision-making systems.
           </p>
         </div>
       </div>
@@ -747,11 +769,7 @@
           </article>
           <article class="interest-card">
             <h3>Agent Evaluation</h3>
-            <p>Evaluation protocols for constraint following, trajectory reasoning, and task completion.</p>
-          </article>
-          <article class="interest-card">
-            <h3>Trajectory-level Reasoning</h3>
-            <p>Modeling long-range dependencies across multi-step agent behaviors.</p>
+            <p>Evaluation protocols for constraint following, task completion, and interactive decision-making.</p>
           </article>
         </div>
       </div>
@@ -764,23 +782,6 @@
           <h2 id="projects-title">Selected Projects</h2>
         </div>
         <div class="projects">
-          <article class="project-card">
-            <h3>TrajGraphRank</h3>
-            <ul class="project-tags" aria-label="TrajGraphRank tags">
-              <li>LLM Agents</li>
-              <li>Agent Evaluation</li>
-              <li>Trajectory Reasoning</li>
-            </ul>
-            <p>
-              A research project on trajectory-level graph reasoning and constraint-aware ranking for evaluating LLM-based agents. The project studies how agents retrieve, rank, and use long-range constraints during multi-step task execution.
-            </p>
-            <ul>
-              <li>Constraint-aware trajectory analysis</li>
-              <li>Long-range dependency and active constraint miss</li>
-              <li>Ranking-based evaluation for agent behavior</li>
-            </ul>
-          </article>
-
           <article class="project-card">
             <h3>OpenAvatar-AgentUI</h3>
             <ul class="project-tags" aria-label="OpenAvatar-AgentUI tags">
@@ -799,19 +800,19 @@
           </article>
 
           <article class="project-card">
-            <h3>EduAffect Recommender</h3>
-            <ul class="project-tags" aria-label="EduAffect Recommender tags">
-              <li>Educational AI</li>
-              <li>Student Modeling</li>
-              <li>Affective Computing</li>
+            <h3>CamShield</h3>
+            <ul class="project-tags" aria-label="CamShield tags">
+              <li>Computer Vision</li>
+              <li>Privacy Protection</li>
+              <li>Security</li>
             </ul>
             <p>
-              A student modeling and personalized learning recommendation framework that combines behavioral signals and affective signals for learning path recommendation.
+              A computer vision project focused on camera-based privacy protection and visual security. The project explores how vision techniques can be used to detect, monitor, and protect sensitive visual information in practical scenarios.
             </p>
             <ul>
-              <li>Behavior-enhanced knowledge state modeling</li>
-              <li>Affective signal annotation and fusion</li>
-              <li>Personalized learning recommendation</li>
+              <li>Camera-based visual privacy protection</li>
+              <li>Sensitive visual information detection</li>
+              <li>Practical security-oriented vision workflows</li>
             </ul>
           </article>
         </div>
@@ -830,6 +831,11 @@
             <p>B.Eng. in Artificial Intelligence</p>
             <p>School of Computer Science</p>
             <p class="education-date">2022 - 2026</p>
+          </article>
+          <article class="education-item">
+            <h3>Tsinghua University</h3>
+            <p>Incoming Graduate Student in Artificial Intelligence</p>
+            <p class="education-date">2026 -</p>
           </article>
         </div>
       </div>
